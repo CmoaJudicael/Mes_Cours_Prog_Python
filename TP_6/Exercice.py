@@ -1,13 +1,18 @@
 from random import *
 
 
-def Int_Saisie(consigne):
+def Int_Saisie(consigne): #fonction qui n'a rien à voir avec l'exercice
     verif = True
     while verif:
         nombre = input(consigne+"\n")
         if (nombre.isnumeric()):
             return int(nombre)
-        else:continue
+        else:
+            continue
+
+
+# Exercice1
+##########################
 
 
 def remplissageAleaMatrice(ligne, colonne):
@@ -20,7 +25,11 @@ def remplissageAleaMatrice(ligne, colonne):
     return matrice
 
 
-def remplissageManuelMatrice(ligne, colonne):
+# Exercice2
+##########################
+
+
+def SaisieCoefficients(ligne, colonne):
     matrice=[]
     for i in range(0,ligne):
         _liste=[]
@@ -31,7 +40,7 @@ def remplissageManuelMatrice(ligne, colonne):
     return matrice
 
 
-def affichezMatrice(matrice):
+def affichezMatrice(matrice):#Exercice2
     print("Nombre de ligne : "+str(len(matrice))+"\n")
     print("Nombre de colonne : "+str(len(matrice[0]))+"\n")
     for i in range(0,len(matrice)):
@@ -42,10 +51,18 @@ def affichezMatrice(matrice):
     print("\n")
 
 
+# Exercice3
+##########################
+
+
 def affiche_matrice(matrice):
     for i in range(0,len(matrice)):
         print(matrice[i])
     print("\n")
+
+
+# Exercice4
+##########################
 
 
 def soustractionMatrice(matriceA, matriceB):
@@ -72,6 +89,10 @@ def additionMatrice(matriceA, matriceB):
             return matriceAddition
 
 
+# Exercice5
+##########################
+
+
 def produitScalaireMatrice(matriceA, coefficientk_k):
     matriceScalaire = []
     for i in range(0, len(matriceA)):
@@ -80,6 +101,10 @@ def produitScalaireMatrice(matriceA, coefficientk_k):
             _liste.append((matriceA[i][j] * coefficientk_k))
         matriceScalaire.append(_liste)
     return matriceScalaire
+
+
+# Exercice6
+##########################
 
 
 def Matrice_Negative(matrice):
@@ -94,6 +119,10 @@ def Matrice_Negative(matrice):
     return matriceNegative
 
 
+# Exercice7
+##########################
+
+
 def Matrice_Symetrique(matrice):
     matriceSymetrique = []
     for i in range(0, len(matriceA)):
@@ -102,6 +131,10 @@ def Matrice_Symetrique(matrice):
             _liste.append(matrice[i][j])
         matriceSymetrique.append(_liste)
     return matriceSymetrique
+
+
+# Exercice8 -1
+##########################
 
 
 def produits_matrice( matriceA, matriceB):
@@ -118,12 +151,20 @@ def produits_matrice( matriceA, matriceB):
     return matrice_soustraction
 
 
+# Exercice8 -2
+##########################
+
+
 def puissance_matrice(matrice, n):
     if len(matrice) == len(matrice[0]):
         matrice_puissance = produits_matrice(matrice, matrice)
         for i in range(1, n-1):
             matrice_puissance = produits_matrice(matrice_puissance, matrice)
         return matrice_puissance
+
+
+# Exercice8 -3
+##########################
 
 
 def Nombre_CheminsLongueurN(matrice, n):
@@ -142,6 +183,8 @@ def Nombre_CheminsLongueurN(matrice, n):
         print("Désolé, mais la matrice n'est pas carré\n")
 
 
+# Lancement des fonctions pour les tester
+#
 matriceA = [[1, 2, 0, -2], [3, 1, -2, -1], [1, 0, -2, 1]]
 matriceB = [[0, 3, -1, -3], [5, 1, 1, 0], [-1, -3, 0, 1]]
 affiche_matrice(soustractionMatrice(matriceA, matriceB))
