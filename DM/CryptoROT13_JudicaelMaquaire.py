@@ -32,22 +32,63 @@ def Decodage(motCoder):
             rang=rang+26
         mot+=Alphabet[rang]
     return mot
+
 def SaisieMessage():
-    Boolean = False
-    Nombre = ""
-    while (not Boolean):
-        result= input("veuillez saisir votre message :\n")
-        for ch in result:
-            if(ch==ch.capitalize()):
-                Boolean=True
-            else:
-                Boolean=False
-                break
-    print(""+result)
+    result= input("veuillez saisir votre message :\n")
     return result
 
-motcoder=Codage(SaisieMessage())
-print("votre message coder : "+ motcoder)
+def MessageACoder():
+    Boolean = True
+    print("Bienvenue dans l'algorithme de codage\n")
+    while (Boolean):
+        instruction = input("Souhaitez-vous :\n1 - coder un message\n2 - decoder un message\nQ - quittez le programme\n")
+        if (instruction=='1'):
+            print("1 - Coder un message\n--------------------------\n")
+            nbrEssai=10
+            mot=""
+            testMessage= False
+            while(nbrEssai>0):
+                mot=SaisieMessage()
+                for ch in mot:
+                    if(algo1(ch)==-1):
+                        testMessage=False
+                        break
+                    else:
+                        testMessage=True
+                if (testMessage):
+                    print("votre message coder : "+Codage(mot)+"\n")
+                    break
+                else:
+                    nbrEssai-=1
+                    print(f"Votre message ne doit contenir que des lettres en majuscules\nEssai restant : {nbrEssai}")
+
+            continue
+        elif(instruction=='2'):
+            print("2 - Decoder un message\n--------------------------\n")
+            nbrEssai=10
+            mot=""
+            testMessage= False
+            while(nbrEssai>0):
+                mot=SaisieMessage()
+                for ch in mot:
+                    if(algo1(ch)==-1):
+                        testMessage=False
+                        break
+                    else:
+                        testMessage=True
+                if (testMessage):
+                    print("votre message decoder : "+ Decodage(mot)+"\n")
+                    break
+                else:
+                    nbrEssai-=1
+                    print(f"Votre message ne doit contenir que des lettres en majuscules\nEssai restant : {nbrEssai}")
+
+            continue
+        elif(instruction=='Q'):
+            break
+        else:
+            print("desolé je ne comprend pas, choississez '1', '2' ou 'Q'\n")
 
 
-print("votre message decoder : "+ Decodage(motcoder))
+
+MessageACoder()
