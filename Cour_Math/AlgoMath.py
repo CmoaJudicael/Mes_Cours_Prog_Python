@@ -36,7 +36,7 @@ def DeCryptageEucli26(mot):
 
     return result
 def Decrip(a):
-    a=5*(a-11)
+    a=5*a-11
     while(a<0):
         a+=26
     return a

@@ -8,6 +8,7 @@ def algo1(lettre):
                 rang+=1
             break
     return rang
+
 def Codage(mot):
     motCoder=""
     for ch in mot:
@@ -20,6 +21,7 @@ def Codage(mot):
             rang=rang-26
         motCoder+=Alphabet[rang]
     return motCoder
+
 def Decodage(motCoder):
     mot=""
     for ch in motCoder:
